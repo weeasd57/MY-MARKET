@@ -1,0 +1,69 @@
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 1rem; /* p-4 */
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .card {
+    padding: 1.5rem; /* sm:p-6 */
+  }
+}
+
+.cardTitle {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  color: #1f2937; /* text-gray-800 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.cardLinkText {
+  font-size: 1.125rem; /* text-lg */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.cardLinkText strong {
+  font-weight: 600; /* font-semibold */
+}
+
+.cardLink {
+  color: #2563eb; /* text-blue-600 */
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.featuresTitle {
+  font-size: 1.25rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  color: #374151; /* text-gray-700 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.featuresList {
+  list-style: disc;
+  list-style-position: inside;
+  color: #4b5563; /* text-gray-700 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.featuresListItem {
+  margin-bottom: 0.25rem;
+}
+
+.howToOwnTitle {
+  font-size: 1.25rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  color: #374151; /* text-gray-700 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.howToOwnText {
+  color: #4b5563; /* text-gray-700 */
+  white-space: pre-line;
+} 

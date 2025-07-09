@@ -1,0 +1,22 @@
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 2rem; /* p-8 */
+  background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+.pageTitle {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 800; /* font-extrabold */
+  color: #111827; /* text-gray-900 */
+  margin-bottom: 3rem; /* mb-12 */
+  text-align: center;
+}
+
+.cardWrapper {
+  width: 100%; /* w-full */
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+} 
