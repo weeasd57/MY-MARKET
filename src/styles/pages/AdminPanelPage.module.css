@@ -2,16 +2,37 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  padding: 2rem; /* p-8 */
+  padding: 1rem; /* Adjusted for mobile responsiveness */
   background-color: #f3f4f6; /* bg-gray-100 */
 }
 
+@media (min-width: 640px) {
+  .pageContainer {
+    padding: 2rem;
+  }
+}
+
 .pageTitle {
-  font-size: 3rem; /* text-5xl */
+  font-size: 1.875rem; /* text-3xl on mobile */
   font-weight: 800; /* font-extrabold */
   color: #111827; /* text-gray-900 */
-  margin-bottom: 3rem; /* mb-12 */
+  margin-bottom: 1.5rem; /* mb-6 on mobile */
   text-align: center;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .pageTitle {
+    font-size: 2.5rem; /* text-4xl on tablets */
+    margin-bottom: 2rem; /* mb-8 on tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .pageTitle {
+    font-size: 3rem; /* text-5xl on desktop */
+    margin-bottom: 3rem; /* mb-12 on desktop */
+  }
 }
 
 .cardWrapper {
