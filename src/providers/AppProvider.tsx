@@ -36,6 +36,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     // Update document direction and language
     document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = savedLanguage;
+    
+    // Update body class for font family
+    document.body.classList.remove('font-arabic', 'font-sans');
+    document.body.classList.add(savedLanguage === 'ar' ? 'font-arabic' : 'font-sans');
   }, [i18n]);
 
   const changeLanguage = (lang: string) => {
@@ -47,6 +51,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     // Update document direction and language
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
+    
+    // Update body class for font family
+    document.body.classList.remove('font-arabic', 'font-sans');
+    document.body.classList.add(lang === 'ar' ? 'font-arabic' : 'font-sans');
   };
 
   return (

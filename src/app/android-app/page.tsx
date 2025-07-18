@@ -2,8 +2,10 @@
 
 import AppShowcaseCard from '@/components/AppShowcaseCard';
 import { Smartphone, Code, Database, Shield, Globe, Zap, Star, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function AndroidAppPage() {
+  const { t } = useTranslation('common');
   const androidAppFeatures = [
     "نظام مصادقة متقدم (التسجيل، تسجيل الدخول، إعادة تعيين كلمة المرور)",
     "تصفح المنتجات ووظائف البحث المتقدمة",
@@ -87,7 +89,7 @@ export default function AndroidAppPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -95,8 +97,8 @@ export default function AndroidAppPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.number}</div>
+                <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -104,23 +106,23 @@ export default function AndroidAppPage() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               تقنيات متطورة
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               بُني التطبيق باستخدام أحدث التقنيات لضمان أفضل أداء وأمان
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {techStack.map((tech, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <div key={index} className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
                 <div className={`w-16 h-16 bg-gradient-to-br ${tech.color} rounded-2xl flex items-center justify-center text-white mb-4 mx-auto`}>
                   {tech.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 text-center">{tech.name}</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center">{tech.name}</h3>
               </div>
             ))}
           </div>

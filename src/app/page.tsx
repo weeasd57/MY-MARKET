@@ -55,7 +55,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
         {/* Background Elements */}
@@ -67,21 +67,21 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-sm font-medium text-blue-800 mb-8 border border-blue-200">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-full text-sm font-medium text-blue-800 dark:text-blue-200 mb-8 border border-blue-200 dark:border-blue-700">
               <Star className="w-4 h-4 mr-2" />
               منصة التجارة الإلكترونية الأولى في المنطقة
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               مرحباً بك في
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-glow">
                 My Market
               </span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               منصة التجارة الإلكترونية الأكثر تطوراً مع تطبيق أندرويد عصري ولوحة إدارة شاملة. 
-              <span className="block mt-2 text-blue-600 font-semibold">
+              <span className="block mt-2 text-blue-600 dark:text-blue-400 font-semibold">
                 ابدأ رحلتك الرقمية معنا اليوم!
               </span>
             </p>
@@ -113,9 +113,9 @@ export default function Home() {
             {/* Benefits List */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
+                <div key={index} className="flex items-center gap-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 dark:border-gray-700/50">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm font-medium">{benefit}</span>
+                  <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -131,13 +131,13 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 lg:py-20 bg-white/70 backdrop-blur-sm border-y border-gray-200/50">
+      <section className="py-16 lg:py-20 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-y border-gray-200/50 dark:border-gray-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               أرقام تتحدث عن نفسها
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               ثقة آلاف العملاء حول العالم
             </p>
           </div>
@@ -145,11 +145,11 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-4 group-hover:scale-110 transition-all duration-300 ${stat.color}`}>
+                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-2xl mb-4 group-hover:scale-110 transition-all duration-300 ${stat.color}`}>
                   {stat.icon}
                 </div>
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-sm lg:text-base text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2">{stat.number}</div>
+                <div className="text-sm lg:text-base text-gray-600 dark:text-gray-300 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -160,10 +160,10 @@ export default function Home() {
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               مميزات استثنائية
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               اكتشف القوة الحقيقية لمنصتنا من خلال مجموعة شاملة من الميزات المتطورة التي تضعك في المقدمة
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="group relative">
-                <div className="relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 overflow-hidden">
+                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 dark:border-gray-700 overflow-hidden">
                   {/* Background Gradient */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                   
@@ -179,17 +179,17 @@ export default function Home() {
                     {feature.icon}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
                     {feature.description}
                   </p>
                   
                   {/* Hover Arrow */}
                   <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <ArrowRight className="w-5 h-5 text-gray-400" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   </div>
                 </div>
               </div>

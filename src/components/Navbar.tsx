@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from 'next-themes';
 import { 
   Menu, 
@@ -14,25 +13,21 @@ import {
   ShoppingBag,
   Globe,
   Moon,
-  Sun,
-  Languages
+  Sun
 } from 'lucide-react';
-import { useApp } from '../providers/AppProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const { t } = useTranslation('common');
   const { theme, setTheme } = useTheme();
-  const { language, changeLanguage } = useApp();
 
   const navItems = [
-    { href: '/', label: t('nav.home'), icon: Home },
-    { href: '/android-app', label: t('nav.androidApp'), icon: Smartphone },
-    { href: '/admin-panel', label: t('nav.adminPanel'), icon: Shield },
-    { href: '/about', label: t('nav.about'), icon: Globe },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/android-app', label: 'Android App', icon: Smartphone },
+    { href: '/admin-panel', label: 'Admin Panel', icon: Shield },
+    { href: '/about', label: 'About', icon: Globe },
   ];
 
   useEffect(() => {
@@ -53,16 +48,12 @@ const Navbar = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  const toggleLanguage = () => {
-    changeLanguage(language === 'ar' ? 'en' : 'ar');
-  };
-
   if (!mounted) return null;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/90 backdrop-blur-md shadow-lg' 
+        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,14 +93,6 @@ const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
             <button
-              onClick={toggleLanguage}
-              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-              aria-label="Toggle language"
-            >
-              <Languages className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-            </button>
-            
-            <button
               onClick={toggleDarkMode}
               className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle dark mode"
@@ -120,25 +103,19 @@ const Navbar = () => {
                 <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               )}
             </button>
-            
-            <Link href="/contact">
-              <button className="btn-primary">
-                {t('nav.contact')}
-              </button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" />
+                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
+                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
               )}
             </button>
           </div>
@@ -151,7 +128,7 @@ const Navbar = () => {
           ? 'max-h-96 opacity-100' 
           : 'max-h-0 opacity-0 overflow-hidden'
       }`}>
-        <div className="bg-white/95 backdrop-blur-md border-t border-gray-200">
+        <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => {
               const IconComponent = item.icon;
@@ -164,8 +141,8 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center space-x-3 rtl:space-x-reverse p-3 rounded-xl transition-all duration-200 ${
                     isActive 
-                      ? 'bg-blue-50 text-blue-600' 
-                      : 'hover:bg-gray-50'
+                      ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' 
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                   }`}
                 >
                   <IconComponent className="w-5 h-5" />
@@ -174,41 +151,20 @@ const Navbar = () => {
               );
             })}
             
-            <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-              <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                <button
-                  onClick={toggleLanguage}
-                  className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
-                >
-                  <Languages className="w-5 h-5 text-gray-700" />
-                  <span className="text-sm text-gray-700">
-                    {language === 'ar' ? 'English' : 'العربية'}
-                  </span>
-                </button>
-                
-                <button
-                  onClick={toggleDarkMode}
-                  className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
-                >
-                  {theme === 'dark' ? (
-                    <Sun className="w-5 h-5 text-gray-700" />
-                  ) : (
-                    <Moon className="w-5 h-5 text-gray-700" />
-                  )}
-                  <span className="text-sm text-gray-700">
-                    {theme === 'dark' ? t('nav.lightMode') : t('nav.darkMode')}
-                  </span>
-                </button>
-              </div>
-              
-              <Link href="/contact">
-                <button 
-                  className="btn-primary"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('nav.contact')}
-                </button>
-              </Link>
+            <div className="flex items-center justify-center pt-4 border-t border-gray-200 dark:border-gray-700">
+              <button
+                onClick={toggleDarkMode}
+                className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                ) : (
+                  <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                )}
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                </span>
+              </button>
             </div>
           </div>
         </div>
