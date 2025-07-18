@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from 'next-themes';
 import { 
   Menu, 
   X, 
@@ -12,23 +14,29 @@ import {
   ShoppingBag,
   Globe,
   Moon,
-  Sun
+  Sun,
+  Languages
 } from 'lucide-react';
+import { useApp } from '../providers/AppProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { t } = useTranslation('common');
+  const { theme, setTheme } = useTheme();
+  const { language, changeLanguage } = useApp();
 
   const navItems = [
-    { href: '/', label: 'الرئيسية', icon: Home },
-    { href: '/android-app', label: 'تطبيق الأندرويد', icon: Smartphone },
-    { href: '/admin-panel', label: 'لوحة الإدارة', icon: Shield },
-    { href: '/about', label: 'عن الشركة', icon: Globe },
+    { href: '/', label: t('nav.home'), icon: Home },
+    { href: '/android-app', label: t('nav.androidApp'), icon: Smartphone },
+    { href: '/admin-panel', label: t('nav.adminPanel'), icon: Shield },
+    { href: '/about', label: t('nav.about'), icon: Globe },
   ];
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -42,9 +50,14 @@ const Navbar = () => {
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // Here you would typically implement dark mode logic
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
+  const toggleLanguage = () => {
+    changeLanguage(language === 'ar' ? 'en' : 'ar');
+  };
+
+  if (!mounted) return null;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -89,20 +102,28 @@ const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
             <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Toggle language"
+            >
+              <Languages className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            </button>
+            
+            <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? (
-                <Sun className="w-5 h-5 text-gray-700" />
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
+                <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               )}
             </button>
             
             <Link href="/contact">
               <button className="btn-primary">
-                تواصل معنا
+                {t('nav.contact')}
               </button>
             </Link>
           </div>
@@ -154,26 +175,38 @@ const Navbar = () => {
             })}
             
             <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-              <button
-                onClick={toggleDarkMode}
-                className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-gray-700" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-700" />
-                )}
-                <span className="text-sm text-gray-700">
-                  {isDarkMode ? 'الوضع النهاري' : 'الوضع الليلي'}
-                </span>
-              </button>
+              <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <Languages className="w-5 h-5 text-gray-700" />
+                  <span className="text-sm text-gray-700">
+                    {language === 'ar' ? 'English' : 'العربية'}
+                  </span>
+                </button>
+                
+                <button
+                  onClick={toggleDarkMode}
+                  className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                >
+                  {theme === 'dark' ? (
+                    <Sun className="w-5 h-5 text-gray-700" />
+                  ) : (
+                    <Moon className="w-5 h-5 text-gray-700" />
+                  )}
+                  <span className="text-sm text-gray-700">
+                    {theme === 'dark' ? t('nav.lightMode') : t('nav.darkMode')}
+                  </span>
+                </button>
+              </div>
               
               <Link href="/contact">
                 <button 
                   className="btn-primary"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  تواصل معنا
+                  {t('nav.contact')}
                 </button>
               </Link>
             </div>

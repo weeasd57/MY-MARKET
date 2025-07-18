@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "androidApp": "Android App",
+    "adminPanel": "Admin Panel",
+    "about": "About",
+    "contact": "Contact Us",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "hero": {
+    "title": "My Market",
+    "subtitle": "The most advanced e-commerce platform in the region",
+    "description": "We provide comprehensive solutions for modern businesses with advanced mobile applications and comprehensive management systems.",
+    "cta": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "androidApp": {
+      "title": "Android App",
+      "description": "Advanced mobile application for online shopping with modern and easy-to-use interface"
+    },
+    "adminPanel": {
+      "title": "Admin Panel",
+      "description": "Comprehensive management system for controlling all aspects of your business"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Various technical and marketing services to help grow your business"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Competitive and flexible pricing plans suitable for all business sizes"
+    }
+  },
+  "company": {
+    "about": "About Company",
+    "team": "Team",
+    "blog": "Blog",
+    "news": "News"
+  },
+  "support": {
+    "help": "Help",
+    "support": "Technical Support",
+    "docs": "Documentation",
+    "faq": "FAQ"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "cookies": "Cookies",
+    "disclaimer": "Disclaimer"
+  },
+  "contact": {
+    "phone": "+966 50 123 4567",
+    "email": "info@mymarket.com",
+    "address": "Riyadh, Saudi Arabia",
+    "newsletter": {
+      "title": "Stay Connected",
+      "description": "Get the latest news and updates directly to your email",
+      "placeholder": "Your email",
+      "subscribe": "Subscribe"
+    }
+  },
+  "common": {
+    "language": "Language",
+    "arabic": "Arabic",
+    "english": "English",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "next": "Next",
+    "previous": "Previous",
+    "backToTop": "Back to Top"
+  },
+  "footer": {
+    "copyright": "© 2025 My Market. All rights reserved.",
+    "madeWith": "Made with",
+    "madeIn": "in Saudi Arabia"
+  }
+}

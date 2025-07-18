@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import './globals.css';
-import ClientLayout from '../components/ClientLayout'; // Import the new ClientLayout
+import ClientLayout from '../components/ClientLayout';
+import { AppProvider } from '../providers/AppProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -71,9 +72,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ClientLayout>{children}</ClientLayout>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <AppProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </AppProvider>
       </body>
     </html>
   );
