@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useTranslation } from 'react-i18next';
 import { 
   Menu, 
   X, 
@@ -13,7 +14,8 @@ import {
   ShoppingBag,
   Globe,
   Moon,
-  Sun
+  Sun,
+  Languages
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -22,12 +24,13 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const { t, i18n } = useTranslation('common');
 
   const navItems = [
-    { href: '/', label: 'Home', icon: Home },
-    { href: '/android-app', label: 'Android App', icon: Smartphone },
-    { href: '/admin-panel', label: 'Admin Panel', icon: Shield },
-    { href: '/about', label: 'About', icon: Globe },
+    { href: '/', label: t('nav.home'), icon: Home },
+    { href: '/android-app', label: t('nav.androidApp'), icon: Smartphone },
+    { href: '/admin-panel', label: t('nav.adminPanel'), icon: Shield },
+    { href: '/about', label: t('nav.about'), icon: Globe },
   ];
 
   useEffect(() => {
@@ -46,6 +49,13 @@ const Navbar = () => {
 
   const toggleDarkMode = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ar' ? 'en' : 'ar';
+    i18n.changeLanguage(newLang);
+    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = newLang;
   };
 
   if (!mounted) return null;
@@ -92,6 +102,17 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Toggle language"
+            >
+              <Languages className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              <span className="text-sm text-gray-700 dark:text-gray-300">
+                {i18n.language === 'ar' ? 'EN' : 'عر'}
+              </span>
+            </button>
+            
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
@@ -151,7 +172,17 @@ const Navbar = () => {
               );
             })}
             
-            <div className="flex items-center justify-center pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-center pt-4 border-t border-gray-200 dark:border-gray-700 space-x-4 rtl:space-x-reverse">
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                <Languages className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  {i18n.language === 'ar' ? t('common.english') : t('common.arabic')}
+                </span>
+              </button>
+              
               <button
                 onClick={toggleDarkMode}
                 className="flex items-center space-x-2 rtl:space-x-reverse p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
@@ -162,7 +193,7 @@ const Navbar = () => {
                   <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
                 )}
                 <span className="text-sm text-gray-700 dark:text-gray-300">
-                  {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                  {theme === 'dark' ? t('nav.lightMode') : t('nav.darkMode')}
                 </span>
               </button>
             </div>

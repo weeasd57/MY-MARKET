@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import { ShoppingBag, Smartphone, Shield, Zap, Users, TrendingUp, Star, Globe, ArrowRight, CheckCircle, Play } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     setIsVisible(true);
@@ -14,14 +16,14 @@ export default function Home() {
   const features = [
     {
       icon: <ShoppingBag className="w-8 h-8" />,
-      title: "التجارة الإلكترونية المتطورة",
-      description: "منصة شاملة للتجارة الإلكترونية بأحدث التقنيات والذكاء الاصطناعي",
+      title: t('features.androidApp.title'),
+      description: t('features.androidApp.description'),
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: "تطبيق أندرويد متطور",
-      description: "تطبيق جوال بتصميم عصري وواجهة سهلة الاستخدام مع دعم الإشعارات",
+      title: t('features.adminPanel.title'),
+      description: t('features.adminPanel.description'),
       color: "from-purple-500 to-pink-500"
     },
     {
@@ -69,18 +71,18 @@ export default function Home() {
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-full text-sm font-medium text-blue-800 dark:text-blue-200 mb-8 border border-blue-200 dark:border-blue-700">
               <Star className="w-4 h-4 mr-2" />
-              منصة التجارة الإلكترونية الأولى في المنطقة
+              {t('hero.subtitle')}
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               مرحباً بك في
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-glow">
-                My Market
+                {t('hero.title')}
               </span>
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              منصة التجارة الإلكترونية الأكثر تطوراً مع تطبيق أندرويد عصري ولوحة إدارة شاملة. 
+              {t('hero.description')}
               <span className="block mt-2 text-blue-600 dark:text-blue-400 font-semibold">
                 ابدأ رحلتك الرقمية معنا اليوم!
               </span>
@@ -91,7 +93,7 @@ export default function Home() {
                 <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden min-w-[200px]">
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     <Smartphone className="w-5 h-5" />
-                    تطبيق الأندرويد
+                    {t('nav.androidApp')}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -102,7 +104,7 @@ export default function Home() {
                 <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden min-w-[200px]">
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     <Shield className="w-5 h-5" />
-                    لوحة الإدارة
+                    {t('nav.adminPanel')}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />

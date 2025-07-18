@@ -84,5 +84,42 @@
     "copyright": "© 2025 My Market. All rights reserved.",
     "madeWith": "Made with",
     "madeIn": "in Saudi Arabia"
+  },
+  "androidApp": {
+    "title": "Android E-commerce Application",
+    "subtitle": "Advanced and comprehensive e-commerce application designed specifically for Android with the latest technologies and features",
+    "downloadApp": "Download App",
+    "viewDemo": "View Demo",
+    "advancedTech": "Advanced Technologies",
+    "techDescription": "The app is built using the latest technologies to ensure the best performance and security",
+    "features": [
+      "Advanced authentication system (registration, login, password reset)",
+      "Product browsing and advanced search functions",
+      "Shopping cart management (add, delete, update quantity)",
+      "Order placement and history tracking",
+      "User profile management",
+      "Real-time notifications for order updates",
+      "Offline capabilities for product browsing",
+      "Integration with secure payment gateways",
+      "Wishlist functionality",
+      "Product rating and review system",
+      "Multi-language support (Arabic and English)",
+      "Personalized recommendations",
+      "Product and category management (display, categorization, discounted products)",
+      "Scalable order management system with tracking",
+      "Theme and color management (light/dark mode)",
+      "Responsive design for different screen sizes",
+      "Smooth page transitions and animations",
+      "Provider-based state management for high performance",
+      "Performance and security optimizations (memory leak prevention)",
+      "Dynamic currency code updates from Firebase"
+    ],
+    "stats": {
+      "downloads": "Active Downloads",
+      "rating": "User Rating",
+      "uptime": "Uptime",
+      "security": "Data Security"
+    },
+    "howToOwn": "To get this Android application, you can: 1. Purchase a full source code license: Get complete ownership of the application source code, allowing unlimited customization and deployment. 2. Request customization based on your brand and specific needs: We provide custom development services to integrate your brand and unique features and specific business logic. 3. Get ongoing maintenance and support: Choose our maintenance plans to ensure your app stays updated, secure, and performing optimally. Getting Started with Firebase (for Android App) This Android application uses Firebase for secure authentication, including Google Sign-in. To set it up: Create a Firebase Project: Go to the Firebase Console and create a new project. Add Android App to Firebase: Register your Android app in the Firebase project. Remember to add the SHA-1 fingerprint and download google-services.json. Enable Google Sign-in: In Firebase Authentication, enable Google as a sign-in method. Integrate Firebase SDK: Add Firebase SDK dependencies to your Gradle files. For detailed instructions and code examples, please refer to the Firebase Setup and Google Sign-in section in the project's README.md file. Contact us for a detailed quote and timeline, and let us help you turn your e-commerce vision into reality on Android!"
   }
 }
