@@ -40,4 +40,21 @@
   max-width: 42rem; /* max-w-2xl */
   margin-left: auto; /* mx-auto */
   margin-right: auto; /* mx-auto */
+
+  .responsive-padding {
+    padding: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-padding {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-padding {
+      padding: 2rem;
+    }
+  }
+
 } 

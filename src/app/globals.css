@@ -152,6 +152,144 @@
     background-image: radial-gradient(circle at 1px 1px, theme('colors.gray.300') 1px, transparent 0);
     background-size: 20px 20px;
   }
+
+  /* Responsive adjustments */
+  .responsive-padding {
+    padding: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-padding {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-padding {
+      padding: 2rem;
+    }
+  }
+
+  /* Mobile-specific improvements */
+  .mobile-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100;
+  }
+
+  .mobile-text {
+    @apply text-sm leading-relaxed;
+  }
+
+  @media (min-width: 640px) {
+    .mobile-text {
+      @apply text-base;
+    }
+  }
+
+  .mobile-button {
+    @apply px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200;
+  }
+
+  @media (min-width: 640px) {
+    .mobile-button {
+      @apply px-6 py-3 text-base;
+    }
+  }
+
+  /* Touch-friendly elements */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Mobile-specific overrides */
+  @media (max-width: 639px) {
+    .card {
+      border-radius: 1rem;
+      margin: 0.5rem;
+    }
+    
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .overflow-hidden {
+      overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scrolling on mobile */
+    body {
+      overflow-x: hidden;
+    }
+    
+    /* Improve text readability */
+    p, span, div {
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+    
+    /* Better button spacing */
+    button {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Optimize images for mobile */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Responsive font sizing */
+  .responsive-text-sm {
+    @apply text-xs;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-text-sm {
+      @apply text-sm;
+    }
+  }
+
+  .responsive-text-base {
+    @apply text-sm;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-text-base {
+      @apply text-base;
+    }
+  }
+
+  .responsive-text-lg {
+    @apply text-base;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-text-lg {
+      @apply text-lg;
+    }
+  }
+
+  .responsive-text-xl {
+    @apply text-lg;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-text-xl {
+      @apply text-xl;
+    }
+  }
+
+  .responsive-text-2xl {
+    @apply text-xl;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-text-2xl {
+      @apply text-2xl;
+    }
+  }
 }
 
 /* Custom scrollbar */

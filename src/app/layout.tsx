@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'My Market Team' }],
   creator: 'My Market',
   publisher: 'My Market',
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
   formatDetection: {
     email: false,
     address: false,
@@ -57,6 +58,11 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+  },
 };
 
 export default function RootLayout({
@@ -65,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="en">
       <body className={inter.className}>
         <ClientLayout>{children}</ClientLayout>
       </body>
