@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import React from 'react';
 
 import './globals.css';
 import ClientLayout from '../components/ClientLayout';
 import { AppProvider } from '../providers/AppProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: 'My Market - Modern E-commerce Platform',
